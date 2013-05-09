@@ -90,7 +90,8 @@ class Receiver:
 
 
         preamble_offset = offset
-        print "NUMBER of samples: " + str(len(demod_samples))
+        print "NUMBER of samples: " + str(len(demod_samples)/self.spb)
+        print "Energy Offset: " + str(energy_offset)
         print "preamble_offset: " + str(offset)
         
         '''
@@ -99,6 +100,7 @@ class Receiver:
         Note that the final return value is [offset + pre_offset]
         '''
         print "total offset: " + str(energy_offset + preamble_offset)
+        print "starting bit: " + str((energy_offset + preamble_offset)/self.spb)
         return energy_offset + preamble_offset
         
     def demap_and_check(self, demod_samples, preamble_start):
@@ -136,7 +138,7 @@ class Receiver:
 
         data_bits = []
 
-        for x in range(offset/self.spb, len(demod_samples)/self.spb - 300):
+        for x in range(0, (len(demod_samples) - offset)/self.spb): #iterating through the bits
             mean = 0
             #print (x - offset/self.spb)
             for y in range(0, self.spb):

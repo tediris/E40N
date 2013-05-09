@@ -30,7 +30,7 @@ class Sink:
         ext = ""
         if (recd_bits[0] == 0 and recd_bits[1] == 1):
             ext = "txt"
-            #printBytes(bytes)
+            printBytes(bytes)
         elif (recd_bits[0] == 0 and recd_bits[1] == 0):
             ext = "png"
         f = open("foo." + ext, "w")
