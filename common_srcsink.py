@@ -15,5 +15,5 @@ def hamming(s1,s2):
     		diffs += 1
 
     hamming_d = diffs
-    ber = diffs/len(s1)
+    ber = diffs*1.0/len(s1)
     return hamming_d, ber

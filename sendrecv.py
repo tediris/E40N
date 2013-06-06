@@ -122,7 +122,7 @@ if __name__ == '__main__':
     # process the received samples
     # make receiver
     r = Receiver(fc, opt.samplerate, opt.spb)
-    demod_samples = r.demodulate(samples_rx)
+    demod_samples = r.demodulate(samples_rx) #NEEDS TO BE SAMPLES_RX
     one, zero, thresh = r.detect_threshold(demod_samples)
     barker_start = r.detect_preamble(demod_samples, thresh, one)
     rcdbits = r.demap_and_check(demod_samples, barker_start)
