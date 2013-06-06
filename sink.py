@@ -30,7 +30,7 @@ class Sink:
         ext = ""
         if (recd_bits[0] == 0 and recd_bits[1] == 1):
             ext = "txt"
-            printBytes(bytes)
+            self.printBytes(bytes)
         elif (recd_bits[0] == 0 and recd_bits[1] == 0):
             ext = "png"
         f = open("foo." + ext, "w")
@@ -73,8 +73,8 @@ class Sink:
                 byteString += str(b)
 
             byteString = byteString[::-1]
-            print byteString
+            #print byteString
             byte = int(byteString, 2)
-            print chr(byte)
+            #print chr(byte)
             bytes.append(byte)
         return bytes

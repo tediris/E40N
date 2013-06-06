@@ -79,7 +79,7 @@ class Receiver:
             #print "test_array: " + str(test_array)
             result = numpy.multiply(test_array, preamble_samples)
             #print "result: " + str(result)
-            temp = numpy.sum(result)
+            temp = numpy.linalg.norm(result)
             
             if temp > maximum:
                 #print "temp: " + str(temp)
